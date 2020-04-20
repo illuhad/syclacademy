@@ -16,8 +16,7 @@ project (SYCLAcademy)
 option(SYCL_ACADEMY_USE_COMPUTECPP "Configure to compile with ComputeCpp" OFF)
 option(SYCL_ACADEMY_USE_DPCPP "Configure to compile with DPC++" OFF)
 option(SYCL_ACADEMY_USE_HIPSYCL "Configure to compile with hipSYCL" OFF)
-option(SYCL_ACADEMY_INSTALL_ROOT "Path to the root directory of the chosen "
-  "SYCL implementation" "NOT-FOUND")
+option(SYCL_ACADEMY_INSTALL_ROOT "Path to the root directory of the chosen SYCL implementation" "NOT-FOUND")
 
 set(SYCL_IMPLEMENTATIONS_USED 0)
 if(SYCL_ACADEMY_USE_COMPUTECPP)
@@ -72,13 +71,13 @@ endif()
 # hipSYCL setup
 
 if (SYCL_ACADEMY_USE_HIPSYCL)
-  # TODO(Gordon)
+  find_package(hipSYCL CONFIG REQUIRED PATHS ${SYCL_ACADEMY_INSTALL_ROOT}/lib/cmake)
 endif()
 
 # Exercises
 
 enable_testing()
-add_subdirectory(External/Catch2)
+add_subdirectory(External/catch2)
 
 add_subdirectory(Code_Exercises)
 

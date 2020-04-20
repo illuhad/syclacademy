@@ -30,8 +30,23 @@ function(add_sycl_executable_dpcpp prefix source)
   #TODO
 endfunction()
 
+# Note: This is copy-pasted from the ComputeCpp function,
+# we may want to refactor this into a single function.
 function(add_sycl_executable_hipsycl prefix source)
-  #TODO
+  add_executable("${prefix}_${source}" "${source}.cpp")
+  target_include_directories("${prefix}_${source}" PRIVATE
+    ${PROJECT_SOURCE_DIR}/Utilities/include ${PROJECT_SOURCE_DIR}/External/stb)
+  target_link_libraries("${prefix}_${source}" PRIVATE Threads::Threads)
+  target_link_libraries("${prefix}_${source}" PUBLIC Catch2::Catch2)
+  set_target_properties("${prefix}_${source}" PROPERTIES CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED ON)
+
+  add_sycl_to_target(
+    TARGET "${prefix}_${source}"
+    SOURCES "${source}.cpp"
+  )
+    
+  add_test(${source} ${source})
 endfunction()
 
 function(add_sycl_executable prefix source)
@@ -40,7 +55,7 @@ function(add_sycl_executable prefix source)
   elseif(SYCL_ACADEMY_USE_DPCPP)
     add_sycl_executable_dpcpp(prefix source)
   elseif(SYCL_ACADEMY_USE_HIPSYCL)
-    add_sycl_executable_hipsycl(prefix source)
+    add_sycl_executable_hipsycl(${prefix} ${source})
   endif()
 endfunction()
 
@@ -49,4 +64,4 @@ add_subdirectory(Exercise_2_Configuring_a_Queue)
 add_subdirectory(Exercise_3_Hello_World)
 add_subdirectory(Exercise_4_Vector_Add)
 add_subdirectory(Exercise_5_Image_Grayscale)
-add_subdirectory(Exercise_6_matrix_Transpose)
+add_subdirectory(Exercise_6_Matrix_Transpose)
