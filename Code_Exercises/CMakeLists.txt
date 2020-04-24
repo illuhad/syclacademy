@@ -23,11 +23,15 @@ function(add_sycl_executable_computecpp prefix source)
     SOURCES "${source}.cpp"
   )
     
-  add_test(${source} ${source})
+  add_test(${prefix}_${source} ${prefix}_${source})
 endfunction()
 
 function(add_sycl_executable_dpcpp prefix source)
-  #TODO
+  set(DPCPP_COMMAND "dpcpp -I${PROJECT_SOURCE_DIR}/External/catch2/"
+    "single_include ${source}.cpp")
+  add_custom_target("${prefix}_${source}" COMMAND ${DPCPP_COMMAND} SOURCES "${source}.cpp")
+
+  add_test(${prefix}_${source} ${prefix}_${source})
 endfunction()
 
 # Note: This is copy-pasted from the ComputeCpp function,
@@ -46,7 +50,7 @@ function(add_sycl_executable_hipsycl prefix source)
     SOURCES "${source}.cpp"
   )
     
-  add_test(${source} ${source})
+  add_test(${prefix}_${source} ${prefix}_${source})
 endfunction()
 
 function(add_sycl_executable prefix source)

@@ -131,7 +131,7 @@ mkdir build
 
 cd build
 
-cmake ../ -G<cmake_generator> -A<cmake_arch> -D<sycl_implementation>=ON -DSYCL_ACADEMY_INSTALL_ROOT=<path_to_sycl_impl_install_root>
+cmake ../ -G<cmake_generator> -A<cmake_arch> -D<sycl_implementation>=ON
 ```
 
 For `<cmake_generator>` / `<cmake_arch>` we recommend:
@@ -146,9 +146,18 @@ For `sycl_implementation` this can be one of:
 * `SYCL_ACADEMY_USE_DPCPP`
 * `SYCL_ACADEMY_USE_HIPSYCL`
 
+You can also specify the additional optional options:
+
+-DSYCL_ACADEMY_INSTALL_ROOT=<path_to_sycl_impl_install_root>
+
 For `<path_to_sycl_impl_install_root>` we recommend you specify the path to the
 root directory of your SYCL implementation installation, though this may not
 always be required.
+
+-DSYCL_ACADEMY_ENABLE_SOLUTIONS=ON
+
+This will enable building the solutions for each exercise as well as the source
+files. This is disabled by default.
 
 ### Building with Make (DPC++ only)
 
