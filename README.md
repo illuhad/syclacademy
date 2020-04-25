@@ -137,8 +137,8 @@ cmake ../ -G<cmake_generator> -A<cmake_arch> -D<sycl_implementation>=ON
 For `<cmake_generator>` / `<cmake_arch>` we recommend:
 
 * Visual Studio 16 2019 / x64 (Windows)
-* Ninja / x64 (Windows or Linux)
-* Make / x64 (Linux)
+* Ninja / NA (Windows or Linux)
+* Make / NA (Linux)
 
 For `sycl_implementation` this can be one of:
 
