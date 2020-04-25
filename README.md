@@ -159,9 +159,21 @@ always be required.
 This will enable building the solutions for each exercise as well as the source
 files. This is disabled by default.
 
-### Building with Make (DPC++ only)
+### Compiling directly (DPC++ only)
 
-TODO
+If you are using DPC++ there is no CMake integration, but it is very simple to
+use the DPC++ compiler directly.
+
+First you have to ensure that your environment is configured to use DPC++ (note
+if you are using the Intel DevCloud then you don't need to do this step). Simply
+call the `setvars.sh` which when is available in `/opt/intel/inteloneapi` when
+installed as root or sudo and `~/intel/inteloneapi/` otherwise.
+
+`source /opt/intel/inteloneapi/setvars.sh`
+
+or
+
+`source ~/intel/inteloneapi/setvars.sh`
 
 ## Online Interactive Tutorial
 
