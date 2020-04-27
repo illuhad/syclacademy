@@ -80,6 +80,12 @@ cmake -SYCL_ACADEMY_USE_HIPSYCL=ON -DSYCL_ACADEMY_INSTALL_ROOT=/insert/path/to/h
 make Exercise_2_source
 ./Code_Exercises/Exercise_2_Configuring_a_Queue/Exercise_2_source
 ```
+alternatively, without cmake:
+```
+cd Code_Exercises/Exercise_2_Configuring_a_Queue
+HIPSYCL_PLATFORM=<cpu|cuda|rocm> HIPSYCL_GPU_ARCH=<arch-when-compiling-for-gpu> /path/to/hipsycl/bin/syclcc -o sycl-ex-2 -I../../External/Catch2/single_include source.cpp
+```
+
 Note that printing from kernels in ROCm requires a very new software stack and is still experimental, so on hipSYCL you might get an empty output when compiling for AMD GPUs.
 
 

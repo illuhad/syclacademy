@@ -78,6 +78,11 @@ cmake -SYCL_ACADEMY_USE_HIPSYCL=ON -DSYCL_ACADEMY_INSTALL_ROOT=/insert/path/to/h
 make Exercise_3_source
 ./Code_Exercises/Exercise_3_Hello_World/Exercise_3_source
 ```
+alternatively, without cmake:
+```
+cd Code_Exercises/Exercise_3_Hello_World
+HIPSYCL_PLATFORM=<cpu|cuda|rocm> HIPSYCL_GPU_ARCH=<arch-when-compiling-for-gpu> /path/to/hipsycl/bin/syclcc -o sycl-ex-3 -I../../External/Catch2/single_include source.cpp
+```
 
 *Note:* Printing from kernels is still experimental on ROCm, so you might get an empty output when using the hipSYCL ROCm backend. In this case, try using the CPU backend instead.
 

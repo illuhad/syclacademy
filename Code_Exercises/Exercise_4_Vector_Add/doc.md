@@ -77,3 +77,10 @@ make Exercise_4_source
 ./Code_Exercises/Exercise_4_Vector_Add/Exercise_4_source
 ```
 
+alternatively, without cmake:
+```
+cd Code_Exercises/Exercise_4_Vector_Add
+HIPSYCL_PLATFORM=<cpu|cuda|rocm> HIPSYCL_GPU_ARCH=<arch-when-compiling-for-gpu> /path/to/hipsycl/bin/syclcc -o sycl-ex-4 -I../../External/Catch2/single_include source.cpp
+```
+
+
