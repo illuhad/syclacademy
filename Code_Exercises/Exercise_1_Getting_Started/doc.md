@@ -117,6 +117,12 @@ cmake -SYCL_ACADEMY_USE_HIPSYCL=ON -DSYCL_ACADEMY_INSTALL_ROOT=/insert/path/to/h
 make Sample_hello_world
 ./Code_Exercises/Exercise_1_Getting_Started/Sample_hello_world
 ```
+alternatively, without cmake:
+```
+cd Code_Exercises/Exercise_1_Getting_Started
+HIPSYCL_PLATFORM=<cpu|cuda|rocm> HIPSYCL_GPU_ARCH=<arch-when-compiling-for-gpu> /path/to/hipsycl/bin/syclcc -o sycl-ex-1 -I../../External/Catch2/single_include source.cpp
+./sycl-ex-1
+```
 
 If you saw the following message:
 
