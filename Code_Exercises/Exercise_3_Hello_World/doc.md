@@ -74,7 +74,7 @@ For hipSYCL:
 ```
 # Add -DHIPSYCL_GPU_ARCH=<arch> to the cmake arguments when compiling for GPUs.
 # <arch> is e.g. sm_60 for NVIDIA Pascal GPUs, gfx900 for AMD Vega 56/64, and gfx906 for Radeon VII.
-cmake -SYCL_ACADEMY_USE_HIPSYCL=ON -DSYCL_ACADEMY_INSTALL_ROOT=/insert/path/to/hipsycl -DHIPSYCL_PLATFORM=<cpu|cuda|rocm> ..
+cmake -DSYCL_ACADEMY_USE_HIPSYCL=ON -DSYCL_ACADEMY_INSTALL_ROOT=/insert/path/to/hipsycl -DHIPSYCL_PLATFORM=<cpu|cuda|rocm> ..
 make Exercise_3_source
 ./Code_Exercises/Exercise_3_Hello_World/Exercise_3_source
 ```
